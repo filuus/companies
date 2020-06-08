@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  background: rgb(61, 71, 121);
+  background: linear-gradient(
+    45deg,
+    rgba(61, 71, 121, 1) 0%,
+    rgba(0, 208, 189, 1) 100%
+  );
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.search-module {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-module span {
+  display: flex;
+  align-items: center;
+  padding: 0 1%;
+}
+
+.search-module input[type="text"] {
+  width: 40%;
+}
+
+input[type="month"] {
+  padding: 0.2rem;
+  margin-right: 2%;
+}
+
+input[type="text"],
+input[type="month"] {
+  /* width: 35%; */
+  padding-left: 1%;
+}
+
+input[type="text"],
+input[type="month"],
+select,
+select option,
+button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-style: none;
+  color: #fff;
+  height: 2em;
+  outline: none;
+}
+
+button {
+  padding: 0 1%;
+  cursor: pointer;
+}
+
+select option {
+  background-color: rgb(73, 168, 177);
+}
+
+select:focus {
+  outline: none;
+}
+
+select {
+  display: none;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="text"]:focus,
+input[type="month"]:focus {
+  outline: none;
+}
+
+.down button {
+  display: flex;
+  align-self: flex-end;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0 1%;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.date-section {
+  display: flex;
+}
+
+.start-section,
+.end-section {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+}
+
+ul li:hover {
+  cursor: pointer;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+ul li:hover a {
+  color: rgba(0, 208, 189, 1);
+}
+
+.modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+  box-sizing: border-box;
+  z-index: 999;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #000;
+}
+
+.bold {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.close {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1%;
+  font-size: 2em;
+  cursor: pointer;
+  color: #fff;
+}
+
+.up {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    minmax(max-content, min-content) minmax(max-content, min-content)
+    minmax(max-content, min-content) minmax(max-content, min-content);
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-content: center;
+  color: rgb(47, 53, 85);
+  padding: 5%;
+  color: rgba(208, 0, 84, 1);
+}
+
+.down {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(max-content, min-content) minmax(
+      max-content,
+      min-content
+    );
+  grid-column: 2/3;
+  grid-row: 1/2;
+  align-content: center;
+  background: rgb(61, 71, 121);
+  background: linear-gradient(
+    45deg,
+    rgb(47, 53, 85) 0%,
+    rgba(208, 0, 84, 1) 100%
+  );
+  padding: 5%;
+  color: #fff;
+}
+
+.down label {
+  margin-right: 2%;
+}
+
+.up > .title,
+.down .title {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto;
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 1%;
+}
+
+.down > .period {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    minmax(max-content, min-content) minmax(max-content, min-content)
+    minmax(max-content, min-content);
+}
+
+canvas {
+  border: 1px solid #fff;
+  border-left-style: none;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-title,
+.sort-icon {
+  display: flex;
+}
+
+.sort-icon {
+  cursor: pointer;
+}
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table {
+  width: 80%;
+  border-collapse: collapse;
+  background: rgb(255, 255, 255, 0.1);
+  margin: 0 10%;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: rgb(255, 255, 255, 0.2);
+}
+tbody > tr:hover {
+  background: rgb(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+th {
+  background: rgba(41, 115, 143, 1);
+  color: white;
+  font-weight: bold;
+}
+td,
+th {
+  padding: 6px;
+  /* border: 1px solid #ccc; */
+  text-align: left;
+}
+
+.inactive {
+  display: block;
+  padding: 0.5rem;
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  .search-module {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  select {
+    display: flex;
+  }
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5%;
+  }
+
+  .search-module input[type="text"] {
+    width: 90%;
+  }
+
+  .pagination {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  tr:hover {
+    cursor: pointer;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  tr:nth-child(2n) > td {
+    /* Behave  like a "row" */
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:nth-child(2n + 1) > td {
+    border-bottom: 1px solid #fff;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "No.";
+  }
+  td:nth-of-type(2):before {
+    content: "Name";
+  }
+  td:nth-of-type(3):before {
+    content: "City";
+  }
+  td:nth-of-type(4):before {
+    content: "Total income";
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .up {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .down {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .close {
+    color: rgba(208, 0, 84, 1);
+  }
+}
